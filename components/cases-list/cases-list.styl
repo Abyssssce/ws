@@ -1,0 +1,90 @@
+.cases-list
+  position relative
+
+  &__case
+    text-decoration none
+    color currentColor
+    display block
+    position relative
+    z-index 3
+
+    &:not(:last-child)
+      margin-bottom (100% / 25 * 13 / 982 * 234)
+
+      +tablet()
+        margin-bottom (100% / 982 * 234)
+
+    &_side
+      &_right
+        margin-left auto
+
+  &__case-name
+    title-medium()
+    padding-top rem(13)
+    margin-bottom rem(-10)
+    position relative
+
+  &__case-name-text
+    transition opacity .4s ease
+
+    .cases-list__case:hover &
+      .page:not(.page_platform_mobile) &
+        opacity 0
+
+  &__case-name-hover
+    transition opacity .4s ease
+    color $orange
+    z-index 3
+    position absolute
+    left 0
+    bottom 0
+    opacity 0
+
+    .cases-list__case:hover &
+      .page:not(.page_platform_mobile) &
+        opacity 1
+
+  &__data
+    text-small()
+    width (100% / 5 * 2)
+    flex-shrink 0
+    display flex
+    justify-content space-between
+    padding-bottom rem(20)
+    margin-left rem($baseOffset)
+
+    +mobile()
+      width auto
+
+  &__case-description
+    color $grayDark
+    padding-right 10px
+
+    +mobile()
+      display none
+
+  &__case-type
+    text-align right
+
+  &__image-wrapper
+    position absolute
+    width (100% / 25 * 11)
+    z-index 2
+    left 0
+    top 0
+    pointer-events none
+
+    &_out
+      z-index 4
+      opacity .9
+
+  &__image-inner
+    padding-bottom 100%
+
+  &__image
+    position absolute
+    top 0
+    left 0
+    width 100%
+    height 100%
+    transform translate(-50%, -50%)

@@ -1,0 +1,6 @@
+include ../../node_modules/bemto.pug/bemto
+
++b.viewport-element(
+  v-observe-visibility="{callback: visibilityChanged, once: true, intersection: {rootMargin: '-60px'}}"
+)
+  slot

@@ -1,0 +1,12 @@
+include ../../node_modules/bemto.pug/bemto
+
++b.magnetic-block(
+  @mousemove="onMouseMove",
+  @mouseleave="onMouseLeave",
+  @mouseenter="onMouseEnter",
+  :style="wrapperStyles"
+)
+  +e.inner(
+    ref="inner"
+  )
+    slot

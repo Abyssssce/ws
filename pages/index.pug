@@ -1,0 +1,58 @@
+include ../node_modules/bemto.pug/bemto
+
++b.index-root
+  +b.HEADER.header(
+    :style="{right: getScrollBarWidth}"
+  )
+    +e.part
+      +e.ROUTER-LINK.item(
+        :class="{" +
+        "'width_1': isMobile, " +
+        "'width_7': !isMobile," +
+        "'header__item_right': !isMobile" +
+        "}",
+        to="/shield"
+      )
+        .hidden Shield
+        headShield
+
+      +e.item._right.__header-vol.width_4(
+        v-if="!isMobile"
+      )
+        .hidden xvol
+        soundButton
+
+    div(
+      :class="{" +
+      "'width_3': isMobile, " +
+      "'header__part': !isMobile" +
+      "}"
+    )
+      +e.item(
+        :class="{'width_13': !isMobile}",
+      )
+        .hidden Abyss prod stay raw ssce
+        head1
+
+  .width_6(
+    v-if="isMobile"
+  )
+    prodMobileText
+
+  template(
+    v-else
+  )
+    +e.about.width_13
+      .hidden Syno psis_ cvr_44 everything is_determined by is essence and not word
+      homeAbout
+
+    casesList(
+      :cases="cases"
+    )
+
+  +e.contacts(
+    :class="isMobile ? 'width_5' : 'width_12'",
+  )
+    contacts
+
+  footerComponent

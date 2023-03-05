@@ -1,0 +1,30 @@
+.screensaver
+  padding rem(19) rem(13)
+  position fixed
+  top 0
+  left 0
+  right 0
+  bottom 0
+  overflow hidden
+  overflow-y scroll
+  background $blackLight
+  color $white
+  z-index 20
+
+  &__ball
+    position absolute
+    width 29px
+    left 0
+    top 0
+
+  &__text
+    margin-left auto
+    transform translateZ(0)
+
+  &__stamp
+    width 403px
+    position absolute
+    max-width 100%
+    bottom 40px
+    left 50%
+    transform translateX(-50%) translateZ(0)

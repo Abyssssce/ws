@@ -1,0 +1,69 @@
+include ../../node_modules/bemto.pug/bemto
+
++b.COMPONENT.custom-cursor(
+  :is="to ? 'router-link' : 'div'",
+  :to="to",
+  :class="{'custom-cursor_enabled': cursorEnabled}",
+  @mouseenter="cursorVisibility = true",
+  @mouseleave="cursorVisibility = false",
+  @mousemove="onMouseMove",
+  @mousedown="onMouseDown",
+  @mouseup="onMouseUp",
+  @touchstart="onMouseDown",
+  @touchend="onMouseUp",
+  @touchmove="onMouseMove"
+)
+  slot
+
+  +e.cursor(
+    v-if="!app.isMobilePlatform",
+    ref="cursorWrapper"
+  )
+    +e.cursor-wrapper(
+      :class="{" +
+      "'custom-cursor__cursor-wrapper_hovered': isHovered," +
+      "'custom-cursor__cursor-wrapper_mouseisdown': mouseIsDown" +
+      "}"
+    )
+      transition(
+        appear,
+        @enter="scaleIn",
+        @leave="scaleOut",
+        @css="false",
+        mode="out-in"
+      )
+        +e.cursor-inner(
+          v-if="cursorVisibility && cursorEnabled",
+          :key="color",
+          :class="[" +
+          "`custom-cursor__cursor-inner_color_${uiColor}`," +
+          "`custom-cursor__cursor-inner_cursor_${app.cursor}`," +
+          "`custom-cursor__cursor-inner_size_${size}`" +
+          "]",
+          ref="cursor"
+        )
+          +e.circle(
+            :style="{color: color}"
+          )
+
+          transition(
+            @enter="fadeIn",
+            @leave="fadeOut",
+            mode="out-in"
+          )
+            +e.arrows(v-if="app.cursor === 'grabbing'")
+              +e.ICON.arrow(
+                id="arrow-left2"
+              )
+
+              +e.ICON.arrow(
+                id="arrow-right2"
+              )
+
+            +e.ICON.icon(
+              v-else,
+              :key="app.cursor",
+              :id="app.cursor"
+            )
+
+          +e.text(v-if="text !== null") {{ text }}

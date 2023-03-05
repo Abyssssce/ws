@@ -1,0 +1,64 @@
+.header
+  position fixed
+  left 0
+  right 0
+  top 0
+  z-index 4
+  pointer-events none
+
+  +tablet()
+    position initial
+    margin-bottom (100% / 982 * 158)
+
+  +mobile()
+    display flex
+    justify-content flex-end
+    margin-bottom (100% / 608 * 106 * 2)
+
+  a
+  button
+    pointer-events initial
+
+  &__part
+    text-align left
+    position absolute
+    padding rem(19) rem(13)
+    top 0
+    left 0
+    right 0
+
+    +tablet()
+      position initial
+      padding 0
+
+      &:not(:last-child)
+        margin-bottom (100% / 982 * 82)
+
+    +mobile()
+      padding rem(19) rem(13)
+      position fixed
+      transform translateZ(0)
+      left 0
+      right 0
+      top 0
+      z-index 4
+
+  &__item
+    display block
+    vertical-align top
+    margin-bottom (100% / 1920 * 6)
+    position relative
+    z-index 2
+
+    +tablet()
+      margin-bottom (100% / 982 * 6)
+
+    &_right
+      margin-left auto
+
+  &__header-vol
+    //width (100% / 526 * 298)
+    margin-right (100% / 25 * 3)
+
+    +tablet()
+      margin-right (100% / 13 * 3)

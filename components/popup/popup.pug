@@ -1,0 +1,25 @@
+include ../../node_modules/bemto.pug/bemto
+
+transition(
+  appear,
+  @enter="hookEnter",
+  @leave="hookLeave",
+  name="button-cross"
+)
+  +b.popup(
+    v-if="isOpen",
+    :style="{right: getScrollBarWidth}"
+  )
+    +e.overlay
+    +e.panel
+      .container
+        +e.inner
+          slot
+
+          +b.BUTTON.button-cross.__close(
+            v-if="closeButton",
+            type="button",
+            @click="onCloseClick"
+          )
+            +e.inner
+            .hidden Close

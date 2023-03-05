@@ -1,0 +1,130 @@
+@import "normalized.styl"
+@import "blocks/**/*"
+
+body
+  text-small()
+  font-family Helvetica, sans-serif
+  overflow hidden
+  font-weight 400
+  -webkit-tap-highlight-color transparent
+
+h1,h2,h3,h4,h5,h6
+	margin 0
+	padding 0
+
+	&:before
+	&:after
+		margin 0
+		padding 0
+
+[class*="width"]
+  padding 0 (100% / 1920 * 3)
+
+  +mobile()
+    padding 0 (100% / 608 * 4)
+
+.width
+  &_1
+    width (100% / 25 * 1)
+
+    +tablet()
+      width (100% / 13 * 1)
+
+    +mobile()
+      width (100% / 6 * 1)
+
+  &_2
+    width (100% / 25 * 2)
+
+    +tablet()
+      width (100% / 13 * 2)
+
+    +mobile()
+      width (100% / 6 * 2)
+
+  &_3
+    width (100% / 25 * 3)
+
+    +tablet()
+      width (100% / 13 * 3)
+
+    +mobile()
+      width (100% / 6 * 3)
+
+  &_4
+    width (100% / 25 * 4)
+
+    +tablet()
+      width (100% / 13 * 4)
+
+    +mobile()
+      width (100% / 6 * 4)
+
+  &_5
+    width (100% / 25 * 5)
+
+    +tablet()
+      width (100% / 13 * 5)
+
+    +mobile()
+      width (100% / 6 * 5)
+
+  &_6
+    width (100% / 25 * 6)
+
+    +tablet()
+      width (100% / 13 * 6)
+
+    +mobile()
+      width (100% / 6 * 6)
+
+  &_7
+    width (100% / 25 * 7)
+
+    +tablet()
+      width (100% / 13 * 7)
+
+  &_9
+    width (100% / 25 * 9)
+
+    +tablet()
+      width (100% / 13 * 9)
+
+  &_10
+    width (100% / 25 * 10)
+
+    +tablet()
+      width (100% / 13 * 10)
+
+  &_11
+    width (100% / 25 * 11)
+
+    +tablet()
+      width (100% / 13 * 11)
+
+  &_12
+    width (100% / 25 * 12)
+
+    +tablet()
+      width (100% / 13 * 12)
+
+  &_13
+    width (100% / 25 * 13)
+
+    +tablet()
+      width (100% / 13 * 13)
+
+  &_14
+    width (100% / 25 * 14)
+
+    +tablet()
+      width (100% / 13 * 14)
+
+  &_15
+    width (100% / 25 * 15)
+
+    +tablet()
+      width (100% / 13 * 13)
+
+svg
+  display block

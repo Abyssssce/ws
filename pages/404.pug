@@ -1,0 +1,13 @@
+include ../node_modules/bemto.pug/bemto
+
++b.error-404
+  +e.ROUTER-LINK.text(
+    :class="{" +
+    "'width_3': isMobile, " +
+    "'width_13': !isMobile" +
+    "}",
+    to="/"
+  )
+    accessError
+
+  copyrightStamp

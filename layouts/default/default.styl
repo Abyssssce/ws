@@ -1,0 +1,36 @@
+html
+body
+  height 100%
+  background $blackLight
+  color $white
+
+// Style for root nuxt DOM element
+body
+  #__nuxt
+  #__layout
+    height 100%
+
+.page
+  position relative
+  height 100%
+  overflow hidden
+  transform translateZ(0)
+
+  &__wrapper
+    scroll()
+
+  &__container
+    padding rem(19) rem(13)
+    overflow hidden
+
+  &__body
+    .page_platform_mobile &
+      @media (orientation: landscape)
+        display none
+
+  &__turn
+    display none
+
+    .page_platform_mobile &
+      @media (orientation: landscape)
+        display block

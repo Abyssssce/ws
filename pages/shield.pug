@@ -1,0 +1,67 @@
+include ../node_modules/bemto.pug/bemto
+
++b.shield
+  +b.HEADER.header(
+    :style="{right: getScrollBarWidth}"
+  )
+    +e.part
+      +e.ROUTER-LINK.item(
+        :class="{" +
+        "'width_1': isMobile," +
+        "'width_5': !isMobile" +
+        "}",
+        to="/"
+      )
+        .hidden Prod
+        headProd
+
+    div(
+      :class="{" +
+      "'width_2': isMobile, " +
+      "'header__part': !isMobile" +
+      "}"
+    )
+      +e.item._right.width_12
+        .hidden Shield Resistance
+        headShieldResistence
+
+      //- +e.item._right.__header-vol.width_4(
+      //-   v-if="!isMobile"
+      //- )
+      //-   .hidden xvol
+      //-   soundButton
+
+  template(
+    v-if="!isMobile",
+  )
+    +e.stroke.width_13
+      shieldCasePart1
+
+    +e.CASES-LIST.stroke(
+      :cases="cases",
+      side="right"
+    )
+
+    +e.stroke.width_13
+      shieldCasePart3
+
+  .width_6(
+    v-else
+  )
+    shieldMobileText
+
+  +e.subscribe-block
+    +e.date(
+      :class="isMobile ? 'width_3' : 'width_9'"
+    )
+      anoncedDate
+
+    +e.subscribe(
+      :class="isMobile ? 'width_1' : 'width_10'"
+    )
+      subscribe(
+        @click.native="onSubscribeClick",
+        ref="subscribe"
+      )
+
+  +e.FOOTER-COMPONENT.footer

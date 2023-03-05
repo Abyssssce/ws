@@ -1,0 +1,27 @@
+.preloader
+  &__screen
+    position fixed
+    top 0
+    left 0
+    width 100%
+    height 100%
+    background $blackLight
+    z-index 9
+    display flex
+    align-items center
+    justify-content center
+    padding rem(19) rem(13)
+
+    +mobile()
+      align-items flex-start
+
+  &__icon
+    //width (100% / 1920 * 146)
+    width 146px
+    display block
+    margin 0 auto
+    max-height 100%
+    transform translateZ(0)
+
+    +mobile()
+      width 100%

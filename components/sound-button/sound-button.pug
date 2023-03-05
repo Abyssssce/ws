@@ -1,0 +1,44 @@
+include ../../node_modules/bemto.pug/bemto
+
++b.BUTTON.sound-button(
+  type="button",
+  @click="toggleSound"
+)
+  svg(
+    viewBox="0 0 298 70",
+    fill="none",
+    xmlns="http://www.w3.org/2000/svg"
+  )
+    path(
+      fill-rule="evenodd",
+      clip-rule="evenodd" d="M238 0v60h60v10h-70V0h10zM101.5 70L76 20V0h10v17.6L107.6 60h6.8L136 17.6V0h10v20l-25.5 50h-19zM212 50V20c0-5.5-4.5-10-10-10h-30c-5.5 0-10 4.5-10 10v30c0 5.5 4.5 10 10 10h30c5.5 0 10-4.5 10-10zm10-30v30c0 11-9 20-20 20h-30c-11.1 0-20-8.9-20-20V20c0-11 9-20 20-20h30c10.6 0 20 9.1 20 20z",
+      :fill="`url(#sb)`"
+    )
+
+    polygon(
+      points="6 70 0 70 0 64 64 0 70 0 70 6",
+      :fill="`url(#sb)`"
+      ref="lineCenter"
+    )
+
+    path(
+      d="M70 70h-6L0 6V0h6l64 64v6z",
+      :fill="`url(#sb)`",
+      ref="lineCross"
+    )
+
+    polygon(
+      style="opacity:0",
+      points="27 70 21 70 21 64 64 21 70 21 70 27",
+      :fill="`url(#sb)`",
+      ref="lineRight"
+    )
+
+    polygon(
+      style="opacity:0",
+      points="6 49 0 49 0 43 43 0 49 0 49 6",
+      :fill="`url(#sb)`",
+      ref="lineLeft"
+    )
+
+    svgGradient(id="sb")

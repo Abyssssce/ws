@@ -1,0 +1,16 @@
+include ../../node_modules/bemto.pug/bemto
+
++b.preloader
+  transition(
+    appear,
+    @enter="hookScreenEnter",
+    @leave="hookScreenLeave"
+  )
+    +e.screen(
+      v-if="isLoading"
+    )
+      +e.PRELOADER-ICON.icon(
+        ref="icon"
+      )
+
+      +e.COPYRIGHT-STAMP.stamp

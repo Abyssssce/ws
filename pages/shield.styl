@@ -1,0 +1,44 @@
+.shield
+  padding-top (100% / 1920 * 400 / 5 * 4)
+
+  +tablet()
+    padding-top 0
+
+  &__subscribe-block
+    +mobile()
+      display flex
+      margin-top (100% / 608 * 106 * 2)
+
+  &__stroke
+    margin-bottom (100% / 1920 * 6)
+    margin-left auto
+
+  &__date
+    margin-bottom (100% / 1920 * 6)
+    margin-left auto
+
+    +tablet()
+      margin-right (100% / 13 * 1)
+
+    +mobile()
+      margin-right 0
+      margin-left 0
+      order 2
+      padding-top (100% / 6 * 3)
+
+  &__subscribe-block
+    margin-top (100% / 1920 * 400 / 5 * 2)
+
+  &__subscribe
+    margin-left auto
+    margin-right (100% / 25 * 2)
+
+    +tablet()
+      margin-right (100% / 13 * 3)
+
+    +mobile()
+      margin-right 0
+
+  &__footer
+    +mobile()
+      margin-top (-100% / 6 * 4)

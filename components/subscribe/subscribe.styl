@@ -1,0 +1,54 @@
+.subscribe
+  position relative
+
+  &__button
+    display block
+    width 100%
+
+  &__form
+    width 100%
+    position absolute
+    top -5%
+    left 10%
+    font-size .9vw
+
+    +tablet()
+      font-size 1.7vw
+
+    +mobile()
+      font-size 3.9vw
+      top 10%
+      left 110%
+      transform rotate(90deg)
+      transform-origin 0% 0%
+      width 500%
+
+  &__input-item
+    display flex
+    white-space nowrap
+    color #7c7c7c
+    height 1.4em
+
+  &__input
+    width 100%
+    -webkit-appearance none
+    flex-grow 1
+    color $white
+
+    &:focus
+      +placeholder-color()
+        opacity 0
+
+    +placeholder-color()
+      transition opacity .3s ease
+      transition-delay .3s
+      opacity .5
+
+  &__submit
+    color currentColor
+
+  &__message
+    text-medium()
+    position absolute
+    top 100%
+    margin-top 40px

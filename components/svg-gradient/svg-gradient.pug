@@ -1,0 +1,15 @@
+linearGradient(
+  :id="id || $parent._uid",
+  :x1="x1",
+  :y1="y1",
+  :x2="x2",
+  :y2="y2",
+  gradientUnits="userSpaceOnUse"
+)
+  stop(:offset="0" stop-color="#000000")
+  stop(:offset="diagPositionPercentResult - 0.2" stop-color="#373737")
+  stop(:offset="diagPositionPercentResult - 0.1" stop-color="#505050")
+  stop(:offset="diagPositionPercentResult" stop-color="#696969")
+  stop(:offset="diagPositionPercentResult + 0.1" stop-color="#505050")
+  stop(:offset="diagPositionPercentResult + 0.2" stop-color="#373737")
+  stop(:offset="1" stop-color="#000000")

@@ -1,0 +1,138 @@
+placeholder-color($color = currentColor)
+  &::-webkit-input-placeholder
+    color $color !important
+    {block}
+  &:-moz-placeholder
+    color $color !important
+    {block}
+  &::-moz-placeholder
+    color $color !important
+    {block}
+  &:-ms-input-placeholder
+    color $color !important
+    {block}
+  &.placeholder
+    color $color !important
+    {block}
+
+retina()
+  @media (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3 / 2), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx)
+    {block}
+
+// PX to EM function
+// use font-size em(22px, 16px)
+em($value, $base = $baseFontSize)
+  $max = length($value)
+
+  $emValues = ()
+  for $i in (0...$max)
+    push($emValues, _convert-to-em($value[$i], $base))
+
+  return $emValues
+
+_convert-to-em($px, $base)
+  if ((unit($px) == '' || unit($px) == 'px') && ($px != 0))
+    return (round($px / $base, 3)) em
+  else
+    return 0
+
+rem($value, $base = $baseFontSize)
+  $max = length($value)
+
+  $remValues = ()
+  for $i in (0...$max)
+    push($remValues, _convert-to-rem($value[$i], $base))
+
+  return $remValues
+
+_convert-to-rem($px, $base)
+  if ((unit($px) == '' || unit($px) == 'px') && ($px != 0))
+    return (round($px / $base, 3)) rem
+  else
+    return 0
+
+// background images + size
+bgContainer(img)
+  width image-size(img)[0]
+  height image-size(img)[1]
+  background-repeat: no-repeat
+  background-image url(img)
+
+fonts($fontFamily, $src, $weight = normal, $style = normal)
+  @font-face
+    font-family $fontFamily
+    src url(../'~assets/fonts'/$src.woff2) format('woff2'),
+      url(../'~assets/fonts'/$src.woff) format('woff')
+    font-weight $weight
+    font-style $style
+
+triangle(width = 10px, height = 10px, direction = 'bottom', color = #000)
+  // Base triangle styles
+  width 0
+  height 0
+  background 0
+  border-style solid
+
+  // Styles for each direction
+  directions = {
+    top: {
+      border-width: 0 (width * .5) height (width * .5),
+      border-color: transparent transparent color transparent
+    },
+    topRight: {
+      border-width: 0 width height 0,
+      border-color: transparent color transparent transparent
+    },
+    right: {
+      border-width: (height * .5) 0 (height *.5) width,
+      border-color: transparent transparent transparent color
+    },
+    bottomRight: {
+      border-width: 0 0 height width,
+      border-color: transparent transparent color transparent
+    },
+    bottom: {
+      border-width: height (width * .5) 0 (width * .5),
+      border-color: color transparent transparent transparent
+    },
+    bottomLeft: {
+      border-width: width 0 0 height,
+      border-color: transparent transparent transparent color
+    },
+    left: {
+      border-width: (height * .5) width (height * .5) 0,
+      border-color: transparent color transparent transparent
+    },
+    topLeft: {
+      border-width: height width 0 0,
+      border-color: color transparent transparent transparent
+    }
+  }
+
+  // Mixin styles for passed direction
+  styles = directions[direction]
+  {styles}
+
+add-area($width = 20, $height = 50)
+  position relative
+  &:after
+    position absolute
+    display: block
+    content ''
+    left - $width * 1%
+    right - $width * 1%
+    top - $height * 1%
+    bottom - $height * 1%
+
+wp($value, $base)
+  if ((unit($value) == '' || unit($value) == 'px') && ($value != 0))
+    return (round($value / $base, 3) * 100) %
+  else
+    return 0
+
+abs()
+  position absolute
+  left 0
+  right 0
+  top 0
+  bottom 0

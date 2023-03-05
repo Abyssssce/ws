@@ -1,0 +1,71 @@
+{
+  "name": "Nuxt-project-template",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "dev": "NODE_ENV=development cross-env HOST=0.0.0.0 PORT=8080 nuxt",
+    "build": "NODE_ENV=production nuxt build",
+    "start": "NODE_ENV=production nuxt start",
+    "deploy": "npm run generate && shipit prod deploy",
+    "generate": "NODE_ENV=production nuxt generate",
+    "mc": "babel-node make-component.js",
+    "lint": "eslint --ext .js --ignore-path .gitignore .",
+    "lint-fix": "eslint --ext .js --ignore-path .gitignore . --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "author": "Mikhail Ojereliev",
+  "contributors": [
+    "Mikhail Ojereliev <mojereliev@gmail.com> (https://github.com/mojereliev)"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
+    "babel-eslint": "^10.0.1",
+    "bemto.pug": "2.1.0",
+    "cross-env": "^5.2.0",
+    "eslint": "^6.0.0",
+    "eslint-config-standard": "^13.0.0",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-html": "^6.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^9.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "exports-loader": "^0.7.0",
+    "file-loader": "^4.0.0",
+    "husky": "^3.0.0",
+    "imports-loader": "^0.8.0",
+    "json-loader": "^0.5.7",
+    "node-static": "^0.7.10",
+    "path": "0.12.7",
+    "pug-plain-loader": "^1.0.0",
+    "stylus-loader": "^3.0.1",
+    "webpack-svgstore-plugin": "^4.0.1"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.3.1",
+    "animejs": "^3.1.0",
+    "axios-jsonp": "^1.0.4",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "config": "^3.0.0",
+    "gsap": "^2.0.2",
+    "html-loader": "^0.5.5",
+    "nuxt": "^2.3.4",
+    "portal-vue": "^2.1.6",
+    "smooth-scrolling": "^2.3.8",
+    "stylus": "^0.54.5",
+    "three": "^0.112.1",
+    "vee-validate": "^2.1.0-beta.1",
+    "vue-images-loaded": "^1.1.2",
+    "vue-observe-visibility": "^0.4.4",
+    "vue-svg-loader": "^0.15.0",
+    "vue-touch": "^2.0.0-beta.4",
+    "wheel-indicator": "^1.1.4"
+  }
+}

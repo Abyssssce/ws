@@ -1,0 +1,52 @@
+include ../../node_modules/bemto.pug/bemto
+
++b.cases-list
+  +e.cases-list-inner
+    +e.case.viewport-element(
+      v-for="(item, index) in cases",
+      :is="getTag(item)",
+      :to="getTo(item)",
+      :href="getTo(item) ? getTo(item) : item.behance",
+      :target="getTo(item) ? null : '_blank'",
+      @mouseenter="onMouseEnter(item.covers)",
+      @mouseleave="onMouseLeave",
+      @mouseenter.native="onMouseEnter(item.covers)",
+      @mouseleave.native="onMouseLeave",
+      :key="index",
+      :class="[`width_${item.width}`, `cases-list__case_side_${side}`]"
+    )
+      .hidden {{ item.text }}
+
+      component(
+        :is="item.component"
+      )
+
+  //- +e.image-wrapper(
+  //-   ref="imageWrapper"
+  //- )
+  //-   transition(
+  //-     @enter="hookImageWrapperEnter",
+  //-     @leave="hookImageWrapperLeave"
+  //-   )
+  //-     +e.image-inner(
+  //-       v-if="image && !isMobile && !app.interactiveHoverNode"
+  //-     )
+  //-       +e.IMAGE-DISTORTION.image(
+  //-         :image="image",
+  //-         :images="images"
+  //-       )
+
+  +e.image-wrapper._out(
+    ref="imageWrapper2"
+  )
+    transition(
+      @enter="hookImageWrapperEnter",
+      @leave="hookImageWrapperLeave"
+    )
+      +e.image-inner(
+        v-if="image && !isMobile && !app.interactiveHoverNode"
+      )
+        +e.IMAGE-DISTORTION.image(
+          :image="image",
+          :images="images"
+        )
